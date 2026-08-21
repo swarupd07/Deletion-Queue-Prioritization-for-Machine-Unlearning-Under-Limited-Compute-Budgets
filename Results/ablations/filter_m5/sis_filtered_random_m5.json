@@ -1,0 +1,235 @@
+{
+  "experiment": "criteo_sis_filtered_random_equal_compute_budget",
+  "source_url": "https://criteostorage.blob.core.windows.net/criteo-research-datasets/criteo_attribution_dataset.zip",
+  "official_total_rows": 16468027,
+  "policy": "compute and sort SIS once; exclude the bottom-SIS requests; randomly delete without replacement only from the retained queue",
+  "exclusion_rule": "floor(score_cost_multiplier * priority_cost_sec / average_unlearn_sec), capped at queue_size - 1",
+  "budget_definition": "fraction of measured wall-clock cost of deleting the entire original queue with no scoring; SIS scoring and sorting are charged",
+  "datasets": {
+    "Criteo Attribution": {
+      "n_repeats": 30,
+      "budget_fraction": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "queue_size_mean": 20000.0,
+      "score_cost_multiplier": 5.0,
+      "sis_score_sec_mean": 0.029707403333333333,
+      "sis_score_sec_std": 0.003974604900553733,
+      "sis_sort_sec_mean": 0.0013687399999999998,
+      "sis_sort_sec_std": 0.00010380465938648817,
+      "priority_cost_sec_mean": 0.031076143333333337,
+      "priority_cost_sec_std": 0.004039320445722262,
+      "score_deletion_equivalent_mean": 1981.7289624327564,
+      "score_deletion_equivalent_std": 259.4717037236606,
+      "requested_exclusion_count_mean": 9908.1,
+      "requested_exclusion_count_std": 1297.342438775621,
+      "exclusion_count_mean": 9908.1,
+      "exclusion_count_std": 1297.342438775621,
+      "eligible_count_mean": 10091.9,
+      "eligible_count_std": 1297.342438775621,
+      "average_unlearn_sec_mean": 1.56865375e-05,
+      "average_unlearn_sec_std": 3.575424983004793e-07,
+      "budget_sec_mean": [
+        0.03137307500000001,
+        0.07843268750000001,
+        0.15686537500000003,
+        0.2352980625,
+        0.31373075000000006
+      ],
+      "budget_sec_std": [
+        0.0007150849966009587,
+        0.0017877124915023966,
+        0.0035754249830047932,
+        0.005363137474507188,
+        0.0071508499660095865
+      ],
+      "methods": {
+        "sis_filtered_random": {
+          "scoring_completed_mean": [
+            0.7,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "scoring_completed_std": [
+            0.46609159969939895,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n_deleted_mean": [
+            108.43333333333334,
+            3017.8,
+            7956.266666666666,
+            10091.9,
+            10091.9
+          ],
+          "n_deleted_std": [
+            93.72324752395633,
+            259.46488700054755,
+            466.43171753905926,
+            1297.3424387756208,
+            1297.3424387756208
+          ],
+          "n_pending_excluded_mean": [
+            9908.1,
+            9908.1,
+            9908.1,
+            9908.1,
+            9908.1
+          ],
+          "n_pending_excluded_std": [
+            1297.3424387756208,
+            1297.3424387756208,
+            1297.3424387756208,
+            1297.3424387756208,
+            1297.3424387756208
+          ],
+          "charged_compute_sec_mean": [
+            0.03136762954316668,
+            0.07842531163483332,
+            0.15589521903666664,
+            0.1894347035305,
+            0.1894347035305
+          ],
+          "charged_compute_sec_std": [
+            0.0007152034028927927,
+            0.0017881693294207813,
+            0.005197231737990813,
+            0.01738687457299685,
+            0.01738687457299685
+          ],
+          "progress_mean": [
+            0.02004835284992563,
+            -0.7500388663488501,
+            -7.663543836438047,
+            -11.891896429543797,
+            -11.891896429543797
+          ],
+          "progress_std": [
+            0.0442044559412552,
+            0.5240033982360188,
+            3.910014991278536,
+            3.4266545382361495,
+            3.4266545382361495
+          ],
+          "test_mse_mean": [
+            0.19994367572718114,
+            0.19994855032523373,
+            0.19995784734364158,
+            0.19996166843850788,
+            0.19996166843850788
+          ],
+          "test_mse_std": [
+            1.7555941283586286e-07,
+            8.5279917782347e-07,
+            2.9989828038191266e-06,
+            1.8853185015387124e-06,
+            1.8853185015387124e-06
+          ]
+        },
+        "random": {
+          "scoring_completed_mean": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "scoring_completed_std": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n_deleted_mean": [
+            2000.0,
+            5000.0,
+            10000.0,
+            15000.0,
+            20000.0
+          ],
+          "n_deleted_std": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n_pending_excluded_mean": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n_pending_excluded_std": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "charged_compute_sec_mean": [
+            0.03137307500000001,
+            0.07843268750000001,
+            0.15686537500000003,
+            0.2352980625,
+            0.31373075000000006
+          ],
+          "charged_compute_sec_std": [
+            0.0007150849966009587,
+            0.0017877124915023966,
+            0.0035754249830047932,
+            0.005363137474507188,
+            0.0071508499660095865
+          ],
+          "progress_mean": [
+            0.03488941750823725,
+            0.1826398102125765,
+            0.4364742630009015,
+            0.747908716290685,
+            1.0
+          ],
+          "progress_std": [
+            0.11713365479131763,
+            0.18932186062400466,
+            0.1538672814020472,
+            0.067402842035671,
+            0.0
+          ],
+          "test_mse_mean": [
+            0.19994353407182816,
+            0.1999435457242412,
+            0.1999437111655909,
+            0.19994374202064433,
+            0.19994390288045916
+          ],
+          "test_mse_std": [
+            3.537461397312552e-07,
+            5.205812582922906e-07,
+            4.6457905800615917e-07,
+            5.03904418741471e-07,
+            3.647606443908417e-07
+          ]
+        }
+      },
+      "n_total_rows_used": 2000000,
+      "n_train": 1800000,
+      "n_test_in_stream": 200000,
+      "n_test_evaluated": 200000,
+      "dim_including_bias": 37,
+      "hash_dim": 32,
+      "target": "click",
+      "test_metric": "unclipped linear-prediction MSE (Brier-style)",
+      "queue_source": "simulated row-level deletion requests uniformly sampled from real Criteo training impressions"
+    }
+  }
+}
