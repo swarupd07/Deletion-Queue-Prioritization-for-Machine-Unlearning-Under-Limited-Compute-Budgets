@@ -1,0 +1,12 @@
+# Large generated Criteo files
+criteo_rls_state.npz
+data/criteo/
+
+# Python-generated files
+__pycache__/
+*.pyc
+*.pyo
+
+# Local virtual environment
+sis_rls/
+.venv/
