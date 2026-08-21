@@ -387,35 +387,6 @@ def main() -> None:
         seed=args.seed,
     )
 
-# ========================================================================================================================================================
-        # ---------------------------------------------------------------
-    # Export fitted RLS state and stored deletion-request pool
-    # ---------------------------------------------------------------
-    X_history = np.asarray(model.X_hist, dtype=np.float32)
-    y_history = np.asarray(model.y_hist, dtype=np.float64)
-
-    print("Full training rows processed:", n_train)
-    print("Stored deletion pool:", X_history.shape)
-    print("Test data:", X_test.shape)
-
-    np.savez(
-        "criteo_rls_state.npz",
-        P=np.asarray(model.P, dtype=np.float64),
-        w=np.asarray(model.w, dtype=np.float64),
-        X_history=X_history,
-        y_history=y_history,
-        X_test=np.asarray(X_test, dtype=np.float32),
-        y_test=np.asarray(y_test, dtype=np.float64),
-        lam=np.asarray(model.lam),
-        n_seen=np.asarray(model.n_seen),
-    )
-
-    print("Saved criteo_rls_state.npz")
-
-    # Stop here during the one-time export.
-    return
-# ========================================================================================================================================================
-    realizations = []
     for rep in range(args.repeats):
         queue = np.random.default_rng(args.seed + 10_000 + rep).choice(
             args.queue_pool_size, size=args.queue_size, replace=False
