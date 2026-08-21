@@ -448,7 +448,7 @@ For a small 30-request subset, a target-aware one-step look-ahead policy achieve
 - Feature hashing can create collisions.
 - Requests are sampled from a stored training pool rather than observed from a production deletion log.
 - Extreme normalized progress is sensitive to a small initial-to-target distance.
-- Some archived Criteo result folders were produced during iterative development and use inconsistent filenames; see the repository audit below.
+- Some archived Criteo result folders were produced during iterative development and use inconsistent filenames; see the reproducibility notes below
 
 ---
 
